@@ -3,7 +3,7 @@ This is my first Git Repository
 <br>
 Author - Adarsh Trivedi
 
-#  ------------
+# step 1 ------------
 
 import tensorflow as tf
 import random
@@ -18,7 +18,7 @@ model = tf.keras.applications.vgg16.VGG16(
 
 model.summary()
 
-
+# step 2  -----------
 
 def get_submodel(layer_name):
   return tf.keras.models.Model(
@@ -27,7 +27,7 @@ def get_submodel(layer_name):
   )
 get_submodel('block1_conv2').summary()
 
-
+# step 3 ----------
 def create_image():
   return tf.random.uniform((96,96,3), minval=0.5, maxval=0.5)
 
@@ -43,6 +43,7 @@ def plot_image(image, title='random'):
 image = create_image()
 plot_image(image)
 
+# step 4 ----------
 
 def visualize_filter(layer_name, f_index=None, iters = 50):
     submodel = get_submodel(layer_name)
@@ -69,7 +70,7 @@ def visualize_filter(layer_name, f_index=None, iters = 50):
 
     plot_image(image, f'{layer_name}, {f_index}')
 
-
+# step 5 ----------
     print([layer.name for layer in model.layers if 'conv' in layer.name])
 
     layer_name = 'block4_conv2' #@param ['block1_conv1', 'block1_conv2', 'block2_conv1','block2_conv2','block3_conv1','block3_conv2','block3_conv3','block4_conv1','block4_conv2','block4_conv3','block5_conv1','block5_conv2','block5_conv3']
