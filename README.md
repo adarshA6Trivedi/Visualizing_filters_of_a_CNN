@@ -2,7 +2,9 @@
 This is my first Git Repository
 <br>
 Author - Adarsh Trivedi
+
 # 1step ------------
+
 import tensorflow as tf
 import random
 import matplotlib.pyplot as plt
@@ -15,7 +17,9 @@ model = tf.keras.applications.vgg16.VGG16(
 )
 
 model.summary()
+
 # 2step------------
+
 def get_submodel(layer_name):
   return tf.keras.models.Model(
       model.input,
@@ -24,6 +28,7 @@ def get_submodel(layer_name):
 get_submodel('block1_conv2').summary()
 
 # 3step -----------
+
 def create_image():
   return tf.random.uniform((96,96,3), minval=0.5, maxval=0.5)
 
