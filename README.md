@@ -30,24 +30,24 @@ get_submodel('block1_conv2').summary()
 # step 3 ----------
 def create_image():<br>
   return tf.random.uniform((96,96,3), minval=0.5, maxval=0.5)
-
+<br>
 def plot_image(image, title='random'):<br>
-  image = image - tf.math.reduce_min(image)
-  image = image / tf.math.reduce_max(image)
-  plt.imshow(image)
-  plt.xticks([])
-  plt.yticks([])
-  plt.title(title)
-  plt.show()
+  image = image - tf.math.reduce_min(image)<br>
+  image = image / tf.math.reduce_max(image)<br>
+  plt.imshow(image)<br>
+  plt.xticks([])<br>
+  plt.yticks([])<br>
+  plt.title(title)<br>
+  plt.show()<br>
 
-image = create_image()
+image = create_image()<br>
 plot_image(image)
 
 # step 4 ----------
 
-def visualize_filter(layer_name, f_index=None, iters = 50):
-    submodel = get_submodel(layer_name)
-    num_filters = submodel.output.shape[-1]
+def visualize_filter(layer_name, f_index=None, iters = 50):<br>
+    submodel = get_submodel(layer_name)<br>
+    num_filters = submodel.output.shape[-1]<br>
 
     if f_index is None:
       f_index = random.randint(0, num_filters -1)
