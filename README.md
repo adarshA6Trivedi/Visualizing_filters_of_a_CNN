@@ -5,33 +5,33 @@ Author - Adarsh Trivedi
 
 # step 1 ------------
 
-import tensorflow as tf
-import random
-import matplotlib.pyplot as plt
+import tensorflow as tf <br>
+import random<br>
+import matplotlib.pyplot as plt <br>
 
 print("TensorFlow version",tf.__version__)
-
+<br>
 model = tf.keras.applications.vgg16.VGG16(
     include_top=False, weights='imagenet',
     input_shape=(96,96,3)
 )
-
+<br>
 model.summary()
 
 # step 2  -----------
 
-def get_submodel(layer_name):
+def get_submodel(layer_name):<br>
   return tf.keras.models.Model(
       model.input,
       model.get_layer(layer_name).output
-  )
+  )<br>
 get_submodel('block1_conv2').summary()
 
 # step 3 ----------
-def create_image():
+def create_image():<br>
   return tf.random.uniform((96,96,3), minval=0.5, maxval=0.5)
 
-def plot_image(image, title='random'):
+def plot_image(image, title='random'):<br>
   image = image - tf.math.reduce_min(image)
   image = image / tf.math.reduce_max(image)
   plt.imshow(image)
